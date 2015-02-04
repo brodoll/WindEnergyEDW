@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dim].[GeneratorEquipment]
 (
-GeneratorEquipmentPK INTEGER NOT NULL,
+GeneratorEquipmentPK INTEGER NOT NULL CONSTRAINT PK_GeneratorEquipment PRIMARY KEY,
 GeneratorNK NVARCHAR(254) NOT NULL,
 GeneratorClass NVARCHAR(254) NOT NULL,
 GeneratorManufacturer NVARCHAR(254) NOT NULL,

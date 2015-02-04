@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dim].[InvestorToStationBridge]
 (
-StationInvestorPK INTEGER NOT NULL,
-StationFK INTEGER NOT NULL,
+InvestorToStationBridgePK INTEGER NOT NULL CONSTRAINT PK_InvestorToStationBridge PRIMARY KEY,
 InvestorFK INTEGER NOT NULL,
+StationFK INTEGER NOT NULL,
 InvolvementInInvestmentUSDollars DECIMAL(11,0)  NULL,
 InvolvementInInvestmentPercent DECIMAL(5,2)  NULL,
 InvestmentStatusType NVARCHAR(254) NOT NULL,

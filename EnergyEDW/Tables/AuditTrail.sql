@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dim].[AuditTrail]
 (
-AuditTrailPK INTEGER NOT NULL,
+AuditTrailPK INTEGER NOT NULL CONSTRAINT PK_AuditTrail PRIMARY KEY,
 ETLFailureFlag BIT NOT NULL,
 EquipmentFailureFlag BIT NOT NULL,
 PotentialMeasureOutOfBounds BIT NOT NULL,

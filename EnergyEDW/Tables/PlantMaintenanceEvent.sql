@@ -1,6 +1,6 @@
-﻿CREATE TABLE [dim].[PlantMaintenanceEvent]
+﻿CREATE TABLE [dim].[MaintenanceEvent]
 (
-MaintenanceEventPK INTEGER NOT NULL,
+MaintenanceEventPK INTEGER NOT NULL CONSTRAINT PK_MaintenanceEvent PRIMARY KEY,
 MaintenanceEventType NVARCHAR(254) NOT NULL,
 MaintenanceEventLabel NVARCHAR(254) NOT NULL,
 MaintenanceIdNK NVARCHAR(254)  NULL,

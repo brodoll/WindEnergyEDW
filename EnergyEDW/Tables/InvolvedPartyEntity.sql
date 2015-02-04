@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dim].[InvolvedPartyEntity]
 (
-InvolvedPartyEntityPK INTEGER NOT NULL,
+InvolvedPartyEntityPK INTEGER NOT NULL CONSTRAINT PK_InvolvedPartyEntity PRIMARY KEY,
 InvolvedPartyName NVARCHAR(254) NOT NULL,
 InvolvedPartyParentName NVARCHAR(254)  NULL,
 InvolvedPartyExtendedName NVARCHAR(254)  NULL,

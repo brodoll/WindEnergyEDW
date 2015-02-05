@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>EnergyEDW</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{19d76991-e04c-4f0a-bb1d-0c76747fc2be}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>EnergyEDW</RootNamespace>
+    <AssemblyName>EnergyEDW</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Schema Objects" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\Triggers" />
+    <Folder Include="Programmability" />
+    <Folder Include="Views" />
+    <Folder Include="Programmability\Stored Procedures" />
+    <Folder Include="Programmability\Functions" />
+    <Folder Include="Programmability\Types" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\dim.sql" />
+    <Build Include="Schema Objects\bi.sql" />
+    <Build Include="Tables\AuditTrail.sql" />
+    <Build Include="Tables\ExpectedOutputModel.sql" />
+    <Build Include="Tables\GeneratorEquipment.sql" />
+    <Build Include="Tables\GeneratorOperationalStatus.sql" />
+    <Build Include="Tables\InvestorToStationBridge.sql" />
+    <Build Include="Tables\InvolvedPartyEntity.sql" />
+    <Build Include="Tables\InvolvedPartyToGeneratorToStationBridge.sql" />
+    <Build Include="Tables\PlantMaintenanceEvent.sql" />
+    <Build Include="Tables\SECONDARY.sql" />
+    <Build Include="Tables\Station.sql" />
+    <Build Include="Tables\WeatherEvent.sql" />
+    <Build Include="Tables\Wind.sql" />
+    <Build Include="IndexFileGroup.sql" />
+    <Build Include="Tables\Triggers\trgAuditTrail_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgExpectedOutputModel_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgGeneratorEquipment_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgGeneratorOperationalStatus_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgInvestorToStationBridge_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgInvolvedPartyEntity_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgInvolvedPartyToGeneratorToStationBridge_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgMaintenanceEvent_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgStation_LastUpdateDate.sql" />
+    <Build Include="Tables\Triggers\trgWeatherEvent_LastUpdateDate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\fact.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="EnergyEDW.refactorlog" />
+  </ItemGroup>
+</Project>

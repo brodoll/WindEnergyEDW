@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="956b56b5-abeb-4fee-814a-3a5a3fedd6cf" ChangeDateTime="02/05/2015 17:34:57">
+    <Property Name="ElementName" Value="[fact].[Wind].[WindRowNumber]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[fact].[Wind]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Wind_PK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2437e6bc-fc36-4bb5-a13f-e998cea87ac5" ChangeDateTime="02/05/2015 17:37:43">
+    <Property Name="ElementName" Value="[fact].[FK_Wind_]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[fact].[Wind]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Wind_Station]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aad7499d-d679-4122-8ebc-18ea01abda92" ChangeDateTime="02/05/2015 17:53:27">
+    <Property Name="ElementName" Value="[fact].[Wind].[StationInvestorBridgeFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[fact].[Wind]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InvestorToStationBridgeFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d031e859-c83b-41da-8ada-753d97e02085" ChangeDateTime="02/05/2015 17:53:38">
+    <Property Name="ElementName" Value="[fact].[Wind].[GeneratorStationNonInvestorBridgeFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[fact].[Wind]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InvolvedPartyToGeneratorToStationBridgeFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dea8b9ee-a2fb-430f-8298-f42f01f9e4cf" ChangeDateTime="02/05/2015 17:54:00">
+    <Property Name="ElementName" Value="[fact].[Wind].[GeneratorFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[fact].[Wind]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GeneratorEquipmentFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6ef4d6c0-a53f-4bbc-a9a6-44fabaedf81a" ChangeDateTime="02/05/2015 21:13:33">
+    <Property Name="ElementName" Value="[dim].[Station].[MapObject]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[Station]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BoundaryMapObject" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="43b43fdb-d358-4dae-bdb5-2816813013e7" ChangeDateTime="02/05/2015 21:22:57">
+    <Property Name="ElementName" Value="[dim].[MaintenanceEvent].[MaintenanceEventLabel]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[MaintenanceEvent]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MaintenanceEvent" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="decb999b-f0a0-4e30-8516-88feb895b672" ChangeDateTime="02/05/2015 21:34:03">
+    <Property Name="ElementName" Value="[dim].[MaintenanceEvent].[AppliedAfterTheFactFlag]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[MaintenanceEvent]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AppliedToFactAfterTheFactFlag" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="673ccb3a-a38b-4189-9952-1bd46edd5987" ChangeDateTime="02/05/2015 21:56:38">
+    <Property Name="ElementName" Value="[dim].[GeneratorEquipment].[OperationalDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[GeneratorEquipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OperationalDateFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="30c4ef8d-093c-4e39-a42c-4c1406d9c936" ChangeDateTime="02/05/2015 21:56:46">
+    <Property Name="ElementName" Value="[dim].[GeneratorEquipment].[OperationalDateFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[GeneratorEquipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OperationalDateLocalFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8f03a7d0-2649-4d10-8a37-6992d9226b1c" ChangeDateTime="02/05/2015 21:56:55">
+    <Property Name="ElementName" Value="[dim].[GeneratorEquipment].[OutofServiceDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[GeneratorEquipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OutofServiceDateLocalFK" />
+  </Operation>
+</Operations>

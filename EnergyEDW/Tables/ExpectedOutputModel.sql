@@ -1,11 +1,13 @@
 ﻿CREATE TABLE [dim].[ExpectedOutputModel]
 (
-ExpectedEquipmentOutputPK INTEGER NOT NULL CONSTRAINT PK_ExpectedOutputModel PRIMARY KEY,
-ExpectedOutputModelName NVARCHAR(254) NOT NULL,
+ExpectedOutputModelPK INTEGER NOT NULL CONSTRAINT PK_ExpectedOutputModel PRIMARY KEY,
+ModelName NVARCHAR(254) NOT NULL,
 ExpectedOutputPeakInKW DECIMAL(8,3) NOT NULL,
 ExpectedOutputInKWH DECIMAL(8,3) NOT NULL,
-ExpectedOutputEffectiveDate DATE NOT NULL,
-ExpectedOutputExpirationDate DATE  NULL,
-ExpectedOutputModelNotes NVARCHAR(254)  NULL
+ModelEffectiveDate DATE NOT NULL,
+ModelExpirationDate DATE  NULL,
+ModelNotes NVARCHAR(254)  NULL,
+DisplayName AS (ModelName + ' (Published On ' + CONVERT(VARCHAR(10),ModelEffectiveDate,102) + ')'),
+LastUpdateDate DATETIME NOT NULL CONSTRAINT DF_ExpectedOutputModel_LastUpdateDate DEFAULT Current_TimeStamp
 )
 ON [SECONDARY];

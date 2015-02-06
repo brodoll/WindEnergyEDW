@@ -29,7 +29,9 @@ CountryCode NVARCHAR(3) NOT NULL,
 ProvinceOrStatePostalCode NVARCHAR(254) NOT NULL,
 DistrictOrCountyName NVARCHAR(254) NOT NULL,
 NationalLegislativeDistrictID NVARCHAR(254) NOT NULL,
-AdministrativeLevelDistrictLegislativeDistrictID NVARCHAR(254) NOT NULL,
+AdministrativeLevelLegislativeDistrictID NVARCHAR(254) NOT NULL,
+PreviousNationalLegislativeDistrictID NVARCHAR(254) NULL,
+PreviousAdministrativeLevelLegislativeDistrictID NVARCHAR(254) NULL,
 DisplayName AS (Manufacturer + '-' + MakeAndModel + ' (' + CAST(MaximumRatedOutputInKW AS VARCHAR(254)) + ' kW)'),
 LastUpdateDate DATETIME NOT NULL CONSTRAINT DF_GeneratorEquipment_LastUpdateDate DEFAULT Current_TimeStamp
 )
@@ -40,3 +42,16 @@ CREATE SPATIAL INDEX [SPATIAL_GeneratorEquipment_EquipmentMapObject]
 ON [dim].[GeneratorEquipment] (MapObject)
 USING  GEOGRAPHY_AUTO_GRID 
 ON SECONDARY;
+
+GO
+
+CREATE INDEX [IX_GeneratorEquipment_NationalLegislativeDistrict] ON [dim].[GeneratorEquipment] ([NationalLegislativeDistrictID])
+WITH (FILLFACTOR = 90, PAD_INDEX = ON)
+ON IndexFileGroup;
+
+GO
+
+CREATE INDEX [IX_GeneratorEquipment_Manufacturer] ON [dim].[GeneratorEquipment] ([Manufacturer])
+INCLUDE (MakeAndModel)
+WITH (FILLFACTOR = 90, PAD_INDEX = ON)
+ON IndexFileGroup;

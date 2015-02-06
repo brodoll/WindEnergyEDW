@@ -1,11 +1,10 @@
 ﻿CREATE TABLE [fact].[Wind]
 (
 WindPK INTEGER NOT NULL IDENTITY(1,1),
-UniversalDateFK INTEGER NOT NULL,
-UniversalStartTimeFK INTEGER NOT NULL,
+LocalStartDateTime DATETIME NOT NULL,		--current time stamp when data was collected
 --grain begins
-LocalStartDateFK INTEGER NOT NULL,
-LocalStartTimeFK INTEGER NOT NULL,
+IntervalStartDateFK INTEGER NOT NULL,		--UTC value
+IntervalStartTimeFK INTEGER NOT NULL,		--UTC value
 GeneratorEquipmentFK INTEGER NOT NULL,
 --grain ends
 GeneratorOperationalStatusFK INTEGER NOT NULL,
@@ -36,8 +35,16 @@ AuditTrailFK INTEGER NOT NULL,
 ON SECONDARY;
 GO
 
-CREATE INDEX [IX_Wind_Grain_LocalDateTimeEquipment] 
-ON [fact].[Wind] ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK])
+CREATE INDEX [IX_Wind_LocalDateTime] 
+ON [fact].[Wind] (LocalStartDateTime)
+INCLUDE ([GeneratorEquipmentFK], StationFK, EnergyGeneratedInKWH)		 
+WITH (FILLFACTOR = 100, PAD_INDEX = OFF)		 
+ON IndexFileGroup;
+
+GO
+
+CREATE INDEX [IX_Wind_Grain_DateTimeEquipmentKeys] 
+ON [fact].[Wind] (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK])
 INCLUDE (StationFK, EnergyGeneratedInKWH)		--TODO: expand?
 WITH (FILLFACTOR = 100, PAD_INDEX = OFF)		--TODO: pack the index pages. inserts to it are sorted in this order, so page splits should be rare. 
 ON IndexFileGroup;
@@ -45,41 +52,41 @@ ON IndexFileGroup;
 GO
 
 CREATE INDEX [IX_Wind_Station] ON [fact].[Wind] (StationFK)
-INCLUDE ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
+INCLUDE (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
 
 GO
 
 CREATE INDEX [IX_Wind_WeatherEvent] ON [fact].[Wind] (WeatherEventFK)
-INCLUDE ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
+INCLUDE (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
 
 GO
 
 CREATE INDEX [IX_Wind_MaintenanceEvent] ON [fact].[Wind] (MaintenanceEventFK)
-INCLUDE ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
+INCLUDE (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
 
 GO
 
 CREATE INDEX [IX_Wind_GeneratorOperationalStatus] ON [fact].[Wind] (GeneratorOperationalStatusFK)
-INCLUDE ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
+INCLUDE (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
 
 GO
 
 CREATE INDEX [IX_Wind_InvestorToStationBridge] ON [fact].[Wind] (InvestorToStationBridgeFK)
-INCLUDE ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
+INCLUDE (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
 
 GO
 
 CREATE INDEX [IX_Wind_InvolvedPartyToGeneratorToStationBridge] ON [fact].[Wind] (InvolvedPartyToGeneratorToStationBridgeFK)
-INCLUDE ([LocalStartDateFK], [LocalStartTimeFK], [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
+INCLUDE (IntervalStartDateFK, IntervalStartTimeFK, [GeneratorEquipmentFK], [EnergyGeneratedInKWH])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;

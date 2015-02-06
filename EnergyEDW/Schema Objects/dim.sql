@@ -1,2 +1,1 @@
-﻿
-CREATE SCHEMA [dim]
+﻿CREATE SCHEMA [dim]

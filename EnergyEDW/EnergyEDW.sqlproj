@@ -92,6 +92,8 @@
     <Build Include="Tables\Triggers\trgMaintenanceEvent_LastUpdateDate.sql" />
     <Build Include="Tables\Triggers\trgStation_LastUpdateDate.sql" />
     <Build Include="Tables\Triggers\trgWeatherEvent_LastUpdateDate.sql" />
+    <Build Include="Tables\Date.sql" />
+    <Build Include="Tables\Time.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\fact.sql" />

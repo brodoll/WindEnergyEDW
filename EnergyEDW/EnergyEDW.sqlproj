@@ -76,7 +76,7 @@
     <Build Include="Tables\InvestorToStationBridge.sql" />
     <Build Include="Tables\InvolvedPartyEntity.sql" />
     <Build Include="Tables\InvolvedPartyToGeneratorToStationBridge.sql" />
-    <Build Include="Tables\PlantMaintenanceEvent.sql" />
+    <Build Include="Tables\MaintenanceEvent.sql" />
     <Build Include="Tables\SECONDARY.sql" />
     <Build Include="Tables\Station.sql" />
     <Build Include="Tables\WeatherEvent.sql" />

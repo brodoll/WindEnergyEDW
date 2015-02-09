@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dim].[Date]
 (
-  [Date_PK] [int] NOT NULL CONSTRAINT PK_Date PRIMARY KEY
+  [DatePK] [int] NOT NULL CONSTRAINT PK_Date PRIMARY KEY
 , [FullDate] [datetime] NOT NULL
 , [Day] [tinyint] NOT NULL
 , [DaySuffix] [varchar](4) NOT NULL

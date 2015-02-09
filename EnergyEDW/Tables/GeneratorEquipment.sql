@@ -7,7 +7,7 @@ Manufacturer NVARCHAR(254) NOT NULL,
 MakeAndModel NVARCHAR(254) NOT NULL,
 CurrentGeneratorRecordFlag BIT NOT NULL,
 OperationalDateFK INT NOT NULL,
-OutofServiceDateFK INT NULL,
+OutOfServiceDateFK INT NULL,
 DiameterOfRotorBladesInMeters INTEGER NOT NULL,
 MinimumRatedOutputInKW DECIMAL(8,3) NOT NULL,
 MinimumRatedOutputInKWH DECIMAL(8,3) NOT NULL,
@@ -45,13 +45,37 @@ ON SECONDARY;
 
 GO
 
-CREATE INDEX [IX_GeneratorEquipment_NationalLegislativeDistrict] ON [dim].[GeneratorEquipment] ([NationalLegislativeDistrictID])
+CREATE INDEX [IX_GeneratorEquipment_NationalLegislativeDistrict] 
+ON [dim].[GeneratorEquipment] ([NationalLegislativeDistrictID])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
 
 GO
 
-CREATE INDEX [IX_GeneratorEquipment_Manufacturer] ON [dim].[GeneratorEquipment] ([Manufacturer])
-INCLUDE (MakeAndModel)
+CREATE INDEX [IX_GeneratorEquipment_ManufacturerMakeModel] 
+ON [dim].[GeneratorEquipment] ([Manufacturer], [MakeAndModel])
+INCLUDE ([OperationalDateFK], [CurrentGeneratorRecordFlag])
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;
+GO
+
+CREATE INDEX [IX_GeneratorEquipment_OperationalDate] 
+ON [dim].[GeneratorEquipment] ([OperationalDateFK])
+INCLUDE ([CurrentGeneratorRecordFlag], [Manufacturer], [MakeAndModel])
+WITH (FILLFACTOR = 90, PAD_INDEX = ON)
+ON IndexFileGroup;
+GO
+
+CREATE INDEX [IX_GeneratorEquipment_OutOfServiceDate] 
+ON [dim].[GeneratorEquipment] ([OutOfServiceDateFK])
+INCLUDE ([CurrentGeneratorRecordFlag], [Manufacturer], [MakeAndModel])
+WITH (FILLFACTOR = 90, PAD_INDEX = ON)
+ON IndexFileGroup;
+GO
+
+CREATE INDEX [IX_GeneratorEquipment_CurrentGeneratorRecordFlag] 
+ON [dim].[GeneratorEquipment] ([CurrentGeneratorRecordFlag])
+INCLUDE ([OperationalDateFK], [OutOfServiceDateFK], [Manufacturer], [MakeAndModel])
+WITH (FILLFACTOR = 90, PAD_INDEX = ON)
+ON IndexFileGroup;
+GO

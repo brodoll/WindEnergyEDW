@@ -77,4 +77,46 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="OutofServiceDateLocalFK" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="d0f728cb-edce-4cbc-a946-26644d30cad7" ChangeDateTime="02/09/2015 16:12:53">
+    <Property Name="ElementName" Value="[dim].[FK_InvestorToStationBridge_InvestorFK]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dim].[InvestorToStationBridge]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_InvestorToStationBridge_ToInvolvedParty]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8d02e19e-432c-4ae1-bdf2-671cd9b9f9cf" ChangeDateTime="02/09/2015 16:17:07">
+    <Property Name="ElementName" Value="[dim].[InvestorToStationBridge].[InvestmentEffectiveDateLocalFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[InvestorToStationBridge]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InvestmentEffectiveDateFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e0e177dd-c3e4-4c22-b4df-d80aed3dd2c7" ChangeDateTime="02/09/2015 16:17:11">
+    <Property Name="ElementName" Value="[dim].[InvestorToStationBridge].[InvestmentExpirationDateLocalFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[InvestorToStationBridge]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InvestmentExpirationDateFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5abe8f6-b0fd-46c3-8eda-60a106d17aa1" ChangeDateTime="02/09/2015 16:23:26">
+    <Property Name="ElementName" Value="[dim].[InvolvedPartyToGeneratorToStationBridge].[InvolvedPartyFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[InvolvedPartyToGeneratorToStationBridge]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InvolvedPartyEntityFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ab923250-bfae-4078-89b5-d042ed547c6d" ChangeDateTime="02/09/2015 16:25:00">
+    <Property Name="ElementName" Value="[dim].[InvolvedPartyToGeneratorToStationBridge].[GeneratorFK]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dim].[InvolvedPartyToGeneratorToStationBridge]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GeneratorEquipmentFK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9d5681bd-d7fa-428b-920f-fa6cd4b7fe81" ChangeDateTime="02/09/2015 16:34:09">
+    <Property Name="ElementName" Value="[dim].[FK_MaintenanceEvent_ToDate_forEnd]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dim].[MaintenanceEvent]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_MaintenanceEvent_ToDate_ForEnd]" />
+  </Operation>
 </Operations>

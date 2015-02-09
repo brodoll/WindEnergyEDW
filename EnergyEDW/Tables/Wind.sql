@@ -30,7 +30,9 @@ AuditTrailFK INTEGER NOT NULL,
 	CONSTRAINT [FK_Wind_InvolvedPartyToGeneratorToStationBridge] FOREIGN KEY (InvolvedPartyToGeneratorToStationBridgeFK) REFERENCES dim.InvolvedPartyToGeneratorToStationBridge(InvolvedPartyToGeneratorToStationBridgePK),
 	CONSTRAINT [FK_Wind_MaintenanceEvent] FOREIGN KEY (MaintenanceEventFK) REFERENCES dim.MaintenanceEvent(MaintenanceEventPK),
     CONSTRAINT [FK_Wind_Station] FOREIGN KEY (StationFK) REFERENCES dim.Station(StationPK),
-	CONSTRAINT [FK_Wind_WeatherEvent] FOREIGN KEY (WeatherEventFK) REFERENCES dim.WeatherEvent(WeatherEventPK)
+	CONSTRAINT [FK_Wind_WeatherEvent] FOREIGN KEY (WeatherEventFK) REFERENCES dim.WeatherEvent(WeatherEventPK), 
+    CONSTRAINT [FK_Wind_ToDate] FOREIGN KEY ([IntervalStartDateFK]) REFERENCES [dim].[Date]([DatePK]), 
+    CONSTRAINT [FK_Wind_ToTime] FOREIGN KEY ([IntervalStartTimeFK]) REFERENCES [dim].[Time]([TimePK])
 )
 ON SECONDARY;
 GO

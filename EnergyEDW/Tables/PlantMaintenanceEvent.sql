@@ -18,6 +18,6 @@ ON [SECONDARY];
 GO
 
 CREATE INDEX [IX_MaintenanceEvent_ScheduleType] ON [dim].[MaintenanceEvent] ([ScheduleType])
-INCLUDE (MaintenanceDurationInHours, MaintenanceRequestedUniversalDateFK, BeganOnDateniversalDateFK, EndedOnDateUniversalDateFK)
+INCLUDE (MaintenanceDurationInHours, MaintenanceRequestedDateFK, BeganOnDateFK, EndedOnDateFK)
 WITH (FILLFACTOR = 90, PAD_INDEX = ON)
 ON IndexFileGroup;

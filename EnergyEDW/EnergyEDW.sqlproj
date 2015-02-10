@@ -65,6 +65,7 @@
     <Folder Include="Programmability\Stored Procedures" />
     <Folder Include="Programmability\Functions" />
     <Folder Include="Programmability\Types" />
+    <Folder Include="File Groups" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\dim.sql" />
@@ -77,11 +78,9 @@
     <Build Include="Tables\InvolvedPartyEntity.sql" />
     <Build Include="Tables\InvolvedPartyToGeneratorToStationBridge.sql" />
     <Build Include="Tables\MaintenanceEvent.sql" />
-    <Build Include="Tables\SECONDARY.sql" />
     <Build Include="Tables\Station.sql" />
     <Build Include="Tables\WeatherEvent.sql" />
     <Build Include="Tables\Wind.sql" />
-    <Build Include="IndexFileGroup.sql" />
     <Build Include="Tables\Triggers\trgAuditTrail_LastUpdateDate.sql" />
     <Build Include="Tables\Triggers\trgExpectedOutputModel_LastUpdateDate.sql" />
     <Build Include="Tables\Triggers\trgGeneratorEquipment_LastUpdateDate.sql" />
@@ -94,6 +93,8 @@
     <Build Include="Tables\Triggers\trgWeatherEvent_LastUpdateDate.sql" />
     <Build Include="Tables\Date.sql" />
     <Build Include="Tables\Time.sql" />
+    <Build Include="File Groups\IndexFileGroup.sql" />
+    <Build Include="File Groups\SECONDARY.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\fact.sql" />

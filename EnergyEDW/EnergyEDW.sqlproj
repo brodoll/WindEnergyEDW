@@ -78,7 +78,6 @@
     <Build Include="Tables\InvolvedPartyEntity.sql" />
     <Build Include="Tables\InvolvedPartyToGeneratorToStationBridge.sql" />
     <Build Include="Tables\MaintenanceEvent.sql" />
-    <Build Include="Tables\SECONDARY.sql" />
     <Build Include="Tables\Station.sql" />
     <Build Include="Tables\WeatherEvent.sql" />
     <Build Include="Tables\Wind.sql" />
@@ -95,6 +94,7 @@
     <Build Include="Tables\Date.sql" />
     <Build Include="Tables\Time.sql" />
     <Build Include="File Groups\IndexFileGroup.sql" />
+    <Build Include="File Groups\SECONDARY.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\fact.sql" />

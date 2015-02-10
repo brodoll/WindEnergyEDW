@@ -119,4 +119,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_MaintenanceEvent_ToDate_ForEnd]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="64050584-4f41-435e-a8fc-e6e90992a396" ChangeDateTime="02/09/2015 20:58:59">
+    <Property Name="ElementName" Value="[fact].[FK_Wind_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[fact].[Wind]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Wind_ToDate]" />
+  </Operation>
 </Operations>
